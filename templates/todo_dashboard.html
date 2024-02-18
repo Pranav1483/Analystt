@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Dashboard</title>
+        <style type="text/css">
+
+        </style>
+    </head>
+    <body style="display: flex; height: 100vh; width: 100vw; flex-direction: column; align-items: center; justify-content: center; margin: 0px; gap: 20px;">
+        <div style="height: 30px; width: 100%; display: flex; justify-content: space-between;">
+            <label style="margin: 10px;">{{ username }}</label>
+            <div style="display: flex; margin: 10px; gap: 30px;">
+                <a href="add/">Add Task</a>
+                <a href="logout/">Logout</a>
+            </div>
+        </div>
+        <table style="height: calc(100% - 60px); width: 100%;">
+            <thead style="height: 20px;">
+                <th>Task</th>
+                <th>Deadline</th>
+                <th>Status</th>
+                <th></th>
+            </thead>
+            <tbody style="overflow-y: scroll; height: calc(100% - 20px); text-align: center;">
+                {% for obj in tasks %}
+                <tr style="height: 20px;">
+                    <td>{{ obj.title }}</td>
+                    <td>{{ obj.deadline }}</td>
+                    <td>{% if obj.complete %}
+                            Complete
+                        {% else %}
+                            Incomplete
+                        {% endif %}
+                    </td>
+                    <td>
+                        <a href="update/{{ obj.id }}">Change Status</a>
+                        <a href="delete/{{ obj.id }}">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </body>
+</html>

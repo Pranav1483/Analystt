@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Login</title>
+        <style type="text/css">
+
+        </style>
+    </head>
+    <body style="display: flex; flex-direction: column; height: 100vh; width: 100vw; align-items: center; justify-content: center; gap: 20px;">
+        <form style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px" action="verify/" method="post">
+            {% csrf_token %}
+            <h1>Login</h1>
+            <input name="username" type="text" placeholder="Username"/>
+            <input name="password" type="password" placeholder="********"/>
+            <button type="submit">Login</button>
+        </form>
+        <br>
+        <p1>New User ? Enter a Username and Password and start right away !</p1>
+    </body>
+</html>
